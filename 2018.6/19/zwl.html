@@ -129,26 +129,29 @@
         }
 
         function check(str) {
-            let jsonm = {};
-            for (let i = 0; i < str.length; i++) {
-                if (!jsonm[str.charAt(i)]) {
-                    jsonm[str.charAt(i)] = 1;
-                } else {
-                    jsonm[str.charAt(i)] += 1;
+            let json = {};
+            for(let i = 0; i < str.length; i++){
+                if(!json[str.charAt(i)]){
+                    json[str.charAt(i)] = 1;
+                }else{
+                    json[str.charAt(i)] += 1;
                 }
             }
             let max = 0;
-            let index = '';
-            for (i in jsonm) {
-                if (jsonm[i] > max) {
-                    max = jsonm[i];
-                    index = i;
+            let index  = [];
+            for(i in json){
+                if(json[i] == max){
+                index.push(i);
+                }
+                if(json[i] > max){
+                max = json[i];
+                index = [].concat(i);
                 }
             }
             return {
-                num: max,
-                name: index
-            }
+                name:index,
+                num:max
+            };
         }
         $('button').click(function (e) {
 
