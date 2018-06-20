@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <link href="../../common/css/reset.css" rel="stylesheet">
+    <link href="../../common/css/model.css" rel="stylesheet">
+    <script src="../../common/js/jquery-3.2.1.js"></script>
+</head>
+
+<body>
+    <div id="article">
+        <div class="head">
+            <div class="top-head">
+                <span class="title">每日一题：Object.create和instanceof语句的原理</span>
+                <span class="time">2018-6-20 15:47</span>
+            </div>
+            <div class="sub-head">
+                <span>提问者:Lemon</span>
+            </div>
+        </div>
+        <div class="content">
+            <div class="answer">
+                <div class="answer-name">
+                    郑文龙
+                </div>
+                <div class="answer-body">
+                    <span>
+                        无
+                    </span>
+                </div>
+            </div>
+            <div class="answer">
+                <div class="answer-name">
+                    谢敏辉
+                </div>
+                <div class="answer-body">
+                    <span>
+                        无
+                    </span>
+                </div>
+            </div>
+            <div class="answer">
+                <div class="answer-name">
+                    Lemon
+                </div>
+                <div class="answer-body">
+                    <span>
+                        Object.create原理在于生成一个对象，并把参数中的对象设置为新生成对象的原型<br>
+                        实现对象对另一个对象的继承。
+                        instanceOf语句原理在于遍历左侧对象的圆形链，来判断是否等于右侧的原型对象<br>
+                        具体思路可参考代码中的伪代码实现<br>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        //Object.create伪代码
+        Object.create = function (obj) {
+            function f() {};
+            f.prototype = obj;
+            return new f()
+        }
+        //instanceOf伪代码
+        function instance_of(L, R) { //L 表示左表达式，R 表示右表达式
+            var O = R.prototype; // 取 R 的显示原型
+            L = L.__proto__; // 取 L 的隐式原型
+            while (true) {
+                if (L === null)
+                    return false;
+                if (O === L) // 这里重点：当 O 严格等于 L 时，返回 true 
+                    return true;
+                L = L.__proto__;
+            }
+        }
+    </script>
+</body>
+
+</html>
