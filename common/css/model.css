@@ -1,0 +1,55 @@
+html,body{
+    font-family: sans-serif;
+}
+.answer{
+    overflow: hidden;
+}
+.answer-name{
+    float: left;
+    width: 50%;
+    line-height: 300px;
+    text-align: center;
+}
+.answer-body{
+     width: 50%;
+    line-height: 300px;
+    position: absolute;
+    right: 0px;
+}
+.answer-body::before{
+    content: '';
+}
+.answer-body>span{
+    line-height: 25px;
+    display: inline-block;
+    vertical-align: middle;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* width: 100%; */
+}
+.top-head{
+    /* height: 55px; */
+    text-align: center;
+}
+.top-head>.time{
+    /* float: right; */
+    position: absolute;
+    right: 0px;
+    margin-top: 25px;
+}
+.sub-head{
+    text-align: center;
+}
+.title{
+    font-size: 25px;
+    font-weight: bold;
+}
+.footer{
+    line-height: 40px;
+    text-align: center;
+}
+#article{
+    background: url('../img/bg1.jpg');
+    background-size: 100% 100%;
+}

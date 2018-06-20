@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>判断字符串中出现最多的字符并统计数量</title>
+    <link href="../../common/css/reset.css" rel="stylesheet">
+    <link href="../../common/css/model.css" rel="stylesheet">
+    <script src="../../common/js/jquery-3.2.1.js"></script>
+</head>
+
+<body>
+    <div id="article">
+        <div class="head">
+            <div class="top-head">
+                <span class="title">每日一题：判断字符串中出现最多的字符并统计数量</span>
+                <span class="time">2018/6/19 17:00</span>
+            </div>
+            <div class="sub-head">
+                <span>提问者:郑文龙</span>
+                <div style="margin-top: 30px">
+                    这里输入测试的字符：
+                    <input id="str" type="text">
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="answer">
+                <div class="answer-name">
+                    郑文龙
+                </div>
+                <div class="answer-body">
+                    <span>
+                        采用的对象属性遍历方法
+                    </span>
+                    <button id="check">点击测试方法</button>
+                    <span class="check-text">
+
+                    </span>
+                </div>
+            </div>
+            <div class="answer">
+                <div class="answer-name">
+                    谢敏辉
+                </div>
+                <div class="answer-body">
+                    <span>
+                            采用的对象属性遍历方法
+                    </span>
+                    <button id="check2">点击测试方法</button>
+                    <span class="check2-text">
+
+                    </span>
+                </div>
+            </div>
+            <div class="answer">
+                <div class="answer-name">
+                    Lemon
+                </div>
+                <div class="answer-body">
+                    <span>
+                        采用的动态生成正则统计方法
+                    </span>
+                    <button id="check3">点击测试方法</button>
+                    <span class="check3-text">
+
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function check2(string) {
+            var obj1 = {};
+            for (let codePoint of string) {
+                obj1[codePoint] = obj1[codePoint] != undefined ? obj1[codePoint] + 1 : 1;
+            }
+            let max;
+            for (let key in obj1) {
+                max = max ? (obj1[key] > obj1[max] ? key : max) : key
+            }
+            return {
+                num: obj1[max],
+                name: max
+            }
+        }
+
+        function check3(s) {
+
+            if (typeof s !== 'string') {
+                throw new Error('参数类型不为字符');
+            }
+            if (!s.length) {
+                return {
+                    name: '',
+                    num: 1,
+                };
+            }
+            var arr = [...s],
+                pos = [];
+            for (let i = 0; i < arr.length; i++) {
+                let exist = false;
+                pos.forEach((val, key) => {
+                    if (val.name == arr[i]) {
+                        exist = true;
+                        return;
+                    };
+                });
+                if (exist) {
+                    continue;
+                }
+                let obj = {
+                    name: arr[i], //最多的字符串
+                    num: 0, //重复了几次
+                }
+                let reg = new RegExp(arr[i], 'igm');
+                let ret = s.match(reg);
+                if (ret) {
+                    obj.num = ret.length;
+                }
+                pos.push(obj);
+            }
+            pos = pos.sort(function (a, b) {
+                return b.num - a.num;
+            });
+            return pos[0];
+        }
+
+        function check(str) {
+            let jsonm = {};
+            for (let i = 0; i < str.length; i++) {
+                if (!jsonm[str.charAt(i)]) {
+                    jsonm[str.charAt(i)] = 1;
+                } else {
+                    jsonm[str.charAt(i)] += 1;
+                }
+            }
+            let max = 0;
+            let index = '';
+            for (i in jsonm) {
+                if (jsonm[i] > max) {
+                    max = jsonm[i];
+                    index = i;
+                }
+            }
+            return {
+                num: max,
+                name: index
+            }
+        }
+        $('button').click(function (e) {
+
+            if (/check/igm.test(e.target.id)) {
+                let str = $('#str').val();
+                let obj = window[e.target.id](str);
+                $('.' + 　e.target.id　 + '-text').text('最多的字符：' + obj.name + ',出现次数：' + obj.num);
+            }
+        });
+    </script>
+</body>
+
+</html>
