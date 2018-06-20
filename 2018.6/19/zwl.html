@@ -47,7 +47,7 @@
                 </div>
                 <div class="answer-body">
                     <span>
-                            采用的对象属性遍历方法
+                        采用的对象属性遍历方法
                     </span>
                     <button id="check2">点击测试方法</button>
                     <span class="check2-text">
@@ -125,32 +125,49 @@
             pos = pos.sort(function (a, b) {
                 return b.num - a.num;
             });
-            return pos[0];
+
+            if (pos.length == 1) {
+                return pos[0];
+            } else {
+                let arr = [],
+                    max = pos[0].num;
+                while (pos.length) {
+                    if (pos[0].num == max) {
+                        arr.push(pos.shift().name);
+                    } else {
+                        return;
+                    }
+                }
+                return {
+                    num: max,
+                    name: arr.join(',')
+                }
+            }
         }
 
         function check(str) {
             let json = {};
-            for(let i = 0; i < str.length; i++){
-                if(!json[str.charAt(i)]){
+            for (let i = 0; i < str.length; i++) {
+                if (!json[str.charAt(i)]) {
                     json[str.charAt(i)] = 1;
-                }else{
+                } else {
                     json[str.charAt(i)] += 1;
                 }
             }
             let max = 0;
-            let index  = [];
-            for(i in json){
-                if(json[i] == max){
-                index.push(i);
+            let index = [];
+            for (i in json) {
+                if (json[i] == max) {
+                    index.push(i);
                 }
-                if(json[i] > max){
-                max = json[i];
-                index = [].concat(i);
+                if (json[i] > max) {
+                    max = json[i];
+                    index = [].concat(i);
                 }
             }
             return {
-                name:index,
-                num:max
+                name: index,
+                num: max
             };
         }
         $('button').click(function (e) {
