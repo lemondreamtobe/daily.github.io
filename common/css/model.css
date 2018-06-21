@@ -1,5 +1,10 @@
 html,body{
     font-family: sans-serif;
+    height: 100%;
+}
+body{
+    background: url('../img/bg1.jpg');
+    background-size: 100% 100%;
 }
 .answer{
     overflow: hidden;
@@ -50,6 +55,5 @@ html,body{
     text-align: center;
 }
 #article{
-    background: url('../img/bg1.jpg');
-    background-size: 100% 100%;
+   
 }

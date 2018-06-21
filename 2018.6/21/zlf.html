@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <link href="../../common/css/reset.css" rel="stylesheet">
+    <link href="../../common/css/model.css" rel="stylesheet">
+    <script src="../../common/js/jquery-3.2.1.js"></script>
+</head>
+<body>
+    <div id="article">
+        <div class="head">
+            <div class="top-head">
+                <span class="title">每日一题：Js和DOM深拷贝和浅拷贝的区分</span>
+                <span class="time">2018-6-21 9:26</span>
+            </div>
+            <div class="sub-head">
+                <span>提问者:Lemon</span>
+            </div>
+        </div>
+        <div class="content">
+            <div class="answer">
+                <div class="answer-name">
+                    Lemon
+                </div>
+                <div class="answer-body">
+                    <span>
+                       JS中深拷贝和浅拷贝的区分：假设a拷贝了b，改变了a状态b状态随之改变，即为浅拷贝<br>
+                       反之a的任意处理不影响b，即为深拷贝<br>
+                       JS数据类型分为两大类:基本数据类型 引用类型<br>
+                       基本类型保存在栈内存中，引用数据类型的名存在栈内存中，值存在于堆内存中<br>
+                       但是栈内存会提供一个引用的地址指向堆内存中的值<br>
+                       基本类型的拷贝就是提供一个值得副本，引用类型的拷贝取得的是堆内存中的指针<br>
+                       所以修改a同样会修改b，因为指针指的还是同一个引用类型的值<br>
+                       浅拷贝往往会带来难以预料的问题，那么如何实现深拷贝呢？<br>
+                       有三种方式：<br>
+                       1.归递复制属性,不足：这种是不彻底的深拷贝，假如属性c中又引用了其他引用类型<br>
+                       那么改变a.c的状态 那么b.c状态同样改变<br>
+                       2.JSON对象的parse和stringify.用法 let a = JSON.parse(JSON.stringify(b));<br>
+                       原理是JSON.parse基于字符串生成了新对象，不足之处：JSON.stringify有着自己的JSON字符串化规则<br>
+                       不识别函数，变量，对象实例，undefined,如果拷贝当中存在以上该值将不会被识别<br>
+                       3.$.extend( [deep ], target, object1 [, objectN ] )利用jquery框架<br>
+                       deep表示是否深拷贝，为true为深拷贝，为false，则为浅拷贝<br>
+                       用法a=$.extend(true,[]/{},b);原理同样是归递复制属性，比起方法1不同之处在于深度递归，遍历子属性<br>
+                       如果子属性是引用类型则再进行递归处理<br>
+                       <br>
+                       DOM深拷贝和浅拷贝针对的是DOM节点而言。对于任意类型的节点 都存在着cloneNode方法<br>
+                       假如b是含有3个子节点li的ul元素<br>
+                       var a = document.getElementById('b'); a.cloneNode()则返回不包含3个子节点的ul，这是浅拷贝<br>
+                       a.cloneNode(true)则返回包含所有子节点的ul，这是深拷贝<br>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
