@@ -59,7 +59,6 @@
             pId: 13,
             name: "Js和DOM深拷贝和浅拷贝的区分",
             url: './2018.6/21/zlf.html',
-            // open: true
         }, 
     ]
 })()

@@ -8,7 +8,9 @@
     <title>判断字符串中出现最多的字符并统计数量</title>
     <link href="../../common/css/reset.css" rel="stylesheet">
     <link href="../../common/css/model.css" rel="stylesheet">
+    <link href="../../common/css/scrollBar.css" rel="stylesheet">
     <script src="../../common/js/jquery-3.2.1.js"></script>
+    <script src="../../common/js/scrollBar.js"></script>
 </head>
 
 <body>
@@ -176,6 +178,12 @@
                 $('.' + 　e.target.id　 + '-text').text('最多的字符：' + obj.name + ',出现次数：' + obj.num);
             }
         });
+        $("html").scrollBar({
+            barWidth: 5, 
+            position: "x,y", 
+            wheelDis: 15 
+        });
+        $('.zl-scrollBarBox').css('bottom', '5px');
     </script>
 </body>
 
