@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <link href="../../common/css/reset.css" rel="stylesheet">
+    <link href="../../common/css/model.css" rel="stylesheet">
+    <link href="../../common/css/scrollBar.css" rel="stylesheet">
+    <script src="../../common/js/jquery-3.2.1.js"></script>
+    <script src="../../common/js/scrollBar.js"></script>
+</head>
+<body>
+    <div id="article">
+        <div class="head">
+            <div class="top-head">
+                <span class="time"></span>
+            </div>
+        </div>
+        <div class="content">
+            <div class="answer">
+                <div class="answer-name">
+                    Lemon:提问者
+                </div>
+                <div class="answer-body">
+                    <span>
+                       闭包的原理：<br>
+                        原理分为两个步骤: 创建&调用
+                        JS的函数在创建之时，无论是声明式，表达式，回调函数，匿名函数都会做以下的操作<br>
+                        只要是在创建之时，便会生成一个带constructor属性(指向函数)的原型对象，并添加至该函数protoType属性当中<br>
+                        同时，会保存该函数在词法作用域中所在的作用域的作用域链，把它保存起来放进[[scope]]的内部属性当中<br>
+                        
+                        JS函数调用时，JS引擎将为该函数创建执行环境，其词法作用域的执行环境将把执行权交出，而将函数执行环境推入执行流的顶端<br>
+                        同时，为该函数初始化函数作用域和作用域链<br>
+                        此时，最关键的在于：将会把[[scope]]中所保留的作用域链拿出，与自身的作用于链一起构建成完整的作用域链<br>
+                        最后，把arguments和this(两个函数独有的属性)和其他函数内声明的标识符一起构建出函数的活动对象，并推入作用域的顶端<br>
+                        所以，当我们在一个函数里寻找变量标识符，会按照作用域的查找规则，当在顶端的活动对象中找不到，则顺着作用域链寻找上层作用域链指向的活动对象<br>
+                        由此可见，作用域链的本质即指向对象的队列指针<br>
+                        这就是为什么函数里定义的函数可以访问原先函数定义的标量<br>
+                        也就是闭包的原理
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $("html").scrollBar({
+            barWidth: 5, 
+            position: "x,y", 
+            wheelDis: 15 
+        });
+        $('.zl-scrollBarBox').css('bottom', '5px');
+    </script>
+</body>
+</html>
