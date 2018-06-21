@@ -1,14 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link href="./common/css/reset.css" rel="stylesheet">
+    <link href="./common/css/model.css" rel="stylesheet">
+    <link href="./common/zTreeStyle/zTreeStyle.css" rel="stylesheet">
+    <link href="./index.css" rel="stylesheet">
+    <script src="./common/js/url.js"></script>
+    <script src="./common/js/jquery-3.2.1.js"></script>
+    <script src="./common/js/jquery.ztree.core.js"></script>
 </head>
+
 <body>
-        <div class="footer">
-                每日一题计划@copyright by Lemon,郑文龙,谢敏辉
+    <div id="index">
+        <div class="index-head">
+            <label>每日一题计划</label>
+        </div>
+        <div class="index-body">
+            <div class="body-left">
+                <ul id="treeDemo" class="ztree"></ul>
             </div>
+            <div class="body-right">
+                <iframe frameborder="0" height="90%" width="100%" src="./2018.6/19/zwl.html" name="article"></iframe>
+            </div>
+        </div>
+        <div class="index-footer">
+            @copyright by Lemon,郑文龙,谢敏辉
+        </div>
+    </div>
+    <script>
+        let setting = {
+            data: {
+                key: {
+                    title: "t"
+                },
+                simpleData: {
+                    enable: true
+                }
+            },
+            view: {
+                showLine: false
+            },
+            callback: {
+                onClick: onClick
+            }
+        };
+        let zNodes = window.index_url;
+        function onClick(event, treeId, treeNode, clickFlag) {
+            $('iframe').attr('src', treeNode.url);
+            event.preventDefault();
+        }
+
+        $(document).ready(function () {
+            $.fn.zTree.init($("#treeDemo"), setting, zNodes);
+            let tree = $.fn.zTree.getZTreeObj('treeDemo');
+            let nodes = tree.getNodesByParam("url", './2018.6/19/zwl.html', null);
+            tree.selectNode(nodes[0], true, true, true);
+        });
+        //-->
+    </script>
 </body>
+
 </html>

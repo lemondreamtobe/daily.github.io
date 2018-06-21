@@ -1,0 +1,35 @@
+.index-body>.body-left{
+    width: 18%;
+    float: left;
+    height: 100%;
+}
+.index-body>.body-right{
+    width: 82%;
+    position: absolute;
+    right: 0px;
+    height: 100%;
+}
+.index-body{
+    height: 900px;
+    overflow: hidden;
+}
+.index-footer{
+    text-align: center;
+}
+.index-head{
+    line-height: 60px;
+    font-size: 30px;
+    color: palevioletred;
+    padding-left: 55px;
+}
+.body-left .ztree{
+    width: 100%;
+    height: 90%;
+    overflow: auto;
+}
+.body-left .ztree *{
+    font-size: 15px;
+}
+[name=article]{
+    padding: 5px;
+}
