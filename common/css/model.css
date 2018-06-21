@@ -11,12 +11,12 @@ html,body{
 }
 .answer-name{
     float: left;
-    width: 50%;
+    width: 30%;
     line-height: 300px;
     text-align: center;
 }
 .answer-body{
-     width: 50%;
+     width: 70%;
     line-height: 300px;
     position: absolute;
     right: 0px;
