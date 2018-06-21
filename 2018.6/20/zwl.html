@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
     <link href="../../common/css/model.css" rel="stylesheet">
     <script src="../../common/js/jquery-3.2.1.js"></script>
 </head>
+
 <body>
     <div id="article">
         <div class="head">
@@ -27,26 +29,37 @@
                 </div>
                 <div class="answer-body">
                     <span>
-                            href 是指向网络资源所在位置，建立和当前元素（锚点）或当前文档（链接）之间的链接，用于超链接。如果我们在文档中添加<br>
-                            link href="common.css" rel="stylesheet"<br>
-                            那么浏览器会识别该文档为css文件，就会并行下载资源并且不会停止对当前文档的处理。<br>
-                            这也是为什么建议使用link方式来加载css，而不是使用@import方式。<br>                        
-                            src是指向外部资源的位置，指向的内容将会嵌入到文档中当前标签所在位置；<br>
-                            在请求src资源时会将其指向的资源下载并应用到文档内，例如js脚本，img图片和frame等元素。 <br>                  
-                            当浏览器解析到该元素时，会暂停其他资源的下载和处理<br>
-                            直到将该资源加载、编译、执行完毕，图片和框架等元素也如此，类似于将所指向资源嵌入当前标签内。<br>
-                            这也是为什么将js脚本放在底部而不是头部。
+                        href 是指向网络资源所在位置，建立和当前元素（锚点）或当前文档（链接）之间的链接，用于超链接。如果我们在文档中添加
+                        <br> link href="common.css" rel="stylesheet"
+                        <br> 那么浏览器会识别该文档为css文件，就会并行下载资源并且不会停止对当前文档的处理。
+                        <br> 这也是为什么建议使用link方式来加载css，而不是使用@import方式。
+                        <br> src是指向外部资源的位置，指向的内容将会嵌入到文档中当前标签所在位置；
+                        <br> 在请求src资源时会将其指向的资源下载并应用到文档内，例如js脚本，img图片和frame等元素。
+                        <br> 当浏览器解析到该元素时，会暂停其他资源的下载和处理
+                        <br> 直到将该资源加载、编译、执行完毕，图片和框架等元素也如此，类似于将所指向资源嵌入当前标签内。
+                        <br> 这也是为什么将js脚本放在底部而不是头部。
                     </span>
                 </div>
             </div>
             <div class="answer">
-                <div style="margin:0 auto;width: 600px;">
-                    <label>附加内容：几种常见的web攻击技术</label></br>
-                    <span>1、XSS（Cross-Site Scripting，跨站脚本攻击）</span></br>
-                    <span>攻击者在网页上发布包含攻击性代码的数据。当浏览者看到此网页时，特定的脚本就会以浏览者用户的身份和权限来执行。通过XSS可以比较容易地修改用户数据、窃取用户信息</span></br>
-                    <span>2、CSRF（Cross-Site Request Forgeries，跨站点请求伪造）</span></br>
-                    <span>攻击者通过各种方法伪造一个请求，模仿用户提交表单的行为，从而达到修改用户的数据，或者执行特定任务的目的。</span></br>
-                    <span>3、SQL注入攻击</span></br>
+                <div class="answer-name">
+                    
+                </div>
+                <div class="answer-body">
+                    <span>
+                        <label>附加内容：几种常见的web攻击技术</label>
+                        </br>
+                        <span>1、XSS（Cross-Site Scripting，跨站脚本攻击）</span>
+                        </br>
+                        <span>攻击者在网页上发布包含攻击性代码的数据。当浏览者看到此网页时，特定的脚本就会以浏览者用户的身份和权限来执行。通过XSS可以比较容易地修改用户数据、窃取用户信息</span>
+                        </br>
+                        <span>2、CSRF（Cross-Site Request Forgeries，跨站点请求伪造）</span>
+                        </br>
+                        <span>攻击者通过各种方法伪造一个请求，模仿用户提交表单的行为，从而达到修改用户的数据，或者执行特定任务的目的。</span>
+                        </br>
+                        <span>3、SQL注入攻击</span>
+                        </br>
+                    </span>
                 </div>
             </div>
             <div class="answer">
@@ -55,11 +68,12 @@
                 </div>
                 <div class="answer-body">
                     <span>
-                       无
+                        无
                     </span>
                 </div>
             </div>
         </div>
     </div>
 </body>
+
 </html>
