@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <link href="../../common/css/reset.css" rel="stylesheet">
+    <link href="../../common/css/model.css" rel="stylesheet">
+    <script src="../../common/js/jquery-3.2.1.js"></script>
+</head>
+<body>
+    <div id="article">
+        <div class="head">
+            <div class="top-head">
+                <span class="title">每日一题：tcp为什么是三次握手，四次挥手？</span>
+                <span class="time">2018-6-21 9：40</span>
+            </div>
+            <div class="sub-head">
+                <span>提问者:谢敏辉</span>
+            </div>
+        </div>
+        <div class="content">
+            <div class="answer">
+                <div class="answer-name">
+                    郑文龙
+                </div>
+                <div class="answer-body">
+                    <span>
+                        
+                    </span>
+                </div>
+            </div>
+            <div class="answer">
+                <div class="answer-name">
+                    谢敏辉
+                </div>
+                <div class="answer-body">
+                    <span>
+                        先说点题外话，tcp协议，是可靠的交付，udp协议是尽最大能力交付。<br>
+                        tcp有三次握手机制，简单来说就是客户端发起，服务器响应，客户端在确认。<br>
+                        tcp还有四次挥手，简单就是客户端请求结束，服务器响应确认，服务器发起结束，<br>
+                        客户端响应确认。
+                        tcp为什么是三次握手,因为多了浪费，少了又不行。如果是两次握手，那么网络存在<br>
+                        延迟的情况下，上次tcp请求，服务器没有收到去响应，客户端因没有收到服务器数据，<br>
+                        就又发了一个tcp连接请求，服务器收到响应了，这时候上一次请求服务器收到了，服务器<br>
+                        以为是一个新的tcp连接，就去响应了，事实上这个请求已经失效了，客户端早就重新发了一个<br>
+                        新的，造成资源，带宽浪费。如果是三次握手，因为有客户端确认，客户端收到那个超时的响应，<br>
+                        就会丢弃不理会。<br>
+                        tcp的四次挥手原因就是要等双方数据都传输完毕，各自去确认关闭。<br>
+                     </span>
+                </div>
+            </div>
+            <div class="answer">
+                <div class="answer-name">
+                    Lemon
+                </div>
+                <div class="answer-body">
+                    <span>
+                       
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
