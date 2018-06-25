@@ -19,7 +19,7 @@ click the button of 'fork' or 'Clone or download'
 click the button of 'push request'
 
 # thirdly, contact us by qq
-![Alt text](./common/img/pic2.png)
+<img src='./common/img/pic2.png'>
 811129998
 ```
 
