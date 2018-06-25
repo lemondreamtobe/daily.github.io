@@ -18,6 +18,9 @@ click the button of 'fork' or 'Clone or download'
 # secondly, if you have some questions, push the request, i will merage it
 click the button of 'push request'
 
+# thirdly, contact us by qq
+![Alt text](./common/img/pic2.png)
+811129998
 ```
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
