@@ -11,6 +11,9 @@
     <link href="./common/zTreeStyle/zTreeStyle.css" rel="stylesheet">
     <link href="./common/css/scrollBar.css" rel="stylesheet">
     <link href="./index.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css">
+    <!-- or -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <script src="./common/js/url.js"></script>
     <script src="./common/js/jquery-3.2.1.js"></script>
     <script src="./common/js/jquery.ztree.core.js"></script>
@@ -19,24 +22,25 @@
 </head>
 
 <body>
-    <div id="index">
-        <div class="index-head">
-            <label>每日一题计划</label>
-        </div>
-        <div class="index-body">
-            <div class="body-left">
-                <ul id="treeDemo" class="ztree"></ul>
+    <div id="login">
+        <div style="overflow: hidden;">
+            <h1 class="mryt animated infinite rubberBand">每日一题</h1>
+            <h1 class="xxmr animated infinite bounce">学习每日</h1>
+            <div style="padding-top: 50px;">
+                <img title="点击进入" id="enter" class="animated infinite shake" src="./common/img/arrow1.png" style="width: 120px;cursor: pointer;" alt="点击进入">
             </div>
-            <div class="body-right">
-                <iframe id="body-iframe" frameborder="0" height="815" width="100%" src="./2018.6/19/zwl.html" name="article"></iframe>
-            </div>
-        </div>
-        <div class="index-footer">
-            @copyright by Lemon,郑文龙,谢敏辉
         </div>
     </div>
     <script>
-        
+        $(function () {
+            $('#index').hide();
+            $('#enter').click(function (e) { 
+                $('#login').fadeOut('slow', function() {
+                    window.location.href='./content.html';
+                    // Animation complete.
+                });
+            });
+        });
     </script>
 </body>
 

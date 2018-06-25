@@ -35,3 +35,22 @@
 [name=article]{
     /* padding: 5px; */
 }
+#login{
+    height: 100%;
+    background: url('./common/img/bg2.jpg');
+    background-size: 100% 100%;
+    position: relative;
+    text-align: center;
+    overflow: auto;
+}
+.xxmr,
+.mryt{
+    display: inline-block;
+    font-size: 50px;
+    color: palevioletred;
+    letter-spacing: 30px;
+    margin-top: 250px;
+}
+#login .animated{
+    animation-duration: 1.5s;
+}
