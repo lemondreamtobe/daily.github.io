@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+       
+        function checkType(obj) {
+
+            let status = Object.prototype.toString.call(obj);
+            let type = status.match(/(\w+)\]/)[1];
+            console.log(typeof type);
+        }
+        for (var i = 0; i < 9; i++) {
+            setTimeout(function() {
+                console.log(i);
+            }, i);
+        }
+        for (var i = 0;i < 9; i++) {
+            var a = function () {
+                console.log(i);
+            }
+            a()
+        }
+    </script>
+</body>
+
+</html>
