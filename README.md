@@ -19,8 +19,7 @@ click the button of 'fork' or 'Clone or download'
 click the button of 'push request'
 
 # thirdly, contact us by qq
-<img src='./common/img/pic2.png'>
 811129998
 ```
-
+<img src='./common/img/pic2.png'>
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
