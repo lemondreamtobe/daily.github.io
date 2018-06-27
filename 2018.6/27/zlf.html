@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <link href="../../common/css/reset.css" rel="stylesheet">
+    <link href="../../common/css/model.css" rel="stylesheet">
+    <link href="../../common/css/scrollBar.css" rel="stylesheet">
+    <script src="../../common/js/jquery-3.2.1.js"></script>
+    <script src="../../common/js/scrollBar.js"></script>
+</head>
+
+<body>
+    <div id="article">
+        <div class="head">
+            <div class="top-head">
+                <span class="time"></span>
+            </div>
+        </div>
+        <div class="content">
+            <div class="answer">
+                <div class="answer-name">
+                    Lemon:提问者
+                </div>
+                <div class="answer-body">
+                    <span>
+                        我们在6月21日的《Js和DOM深拷贝和浅拷贝的区分》一问中<br>
+                        了解了深浅拷贝的区别和具体的实现方式，如果忘记的话请点回去进行在进行阅读<br>
+                        对于其中三条引用类型的深拷贝方法1，我们进行深拷贝的代码实现<br>
+                        具体可看F12代码实现
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var deepClone = (function () {
+
+            //私有方法
+            function checkType(obj) {
+                let status = Object.prototype.toString.call(obj);
+                let type = status.match(/(\w+)\]/)[1];
+                return type;
+            }
+            return function (obj) {
+
+                if (typeof obj !== 'object') {
+                    return obj;
+                }
+                let copy = checkType(obj) === 'Object' ? {} : [];
+                for (let i in obj) {
+                    copy[i] = typeof obj[i] == 'object' ? deepClone(obj[i]) : obj[i];
+                }
+                return copy;
+            };
+        })()
+    </script>
+</body>
+
+</html>
